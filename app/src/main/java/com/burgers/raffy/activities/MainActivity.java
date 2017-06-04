@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.burgers.raffy.giftcerts.R;
 import com.burgers.raffy.utils.Constants;
+import com.burgers.raffy.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
     Intent intent;
@@ -16,11 +17,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button generate = (Button) findViewById(R.id.generate);
+//        Button generate = (Button) findViewById(R.id.generate);
         Button check = (Button) findViewById(R.id.check);
         Button list = (Button) findViewById(R.id.list);
 //        Button delete = (Button) findViewById(R.id.delete);
-        clickListener(generate, new Intent(this, GenerateActivity.class));
+//        clickListener(generate, new Intent(this, GenerateActivity.class));
         clickListener(check, new Intent(this, CheckActivity.class));
         clickListener(list, new Intent(this, ListActivity.class));
 //        clickListener(delete, new Intent(this, DeleteEntryActivity.class));

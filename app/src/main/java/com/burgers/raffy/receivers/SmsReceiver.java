@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
-import android.widget.Toast;
 
 import com.burgers.raffy.utils.Constants;
 import com.burgers.raffy.utils.DBUtils;
@@ -38,17 +37,19 @@ public class SmsReceiver extends BroadcastReceiver{
                 if(Constants.ALLOWED_NUMBER.equals(sender)){
                     switch(message[0]){
                         case Constants.ADD:
-                            DBUtils.addToDB(context, message[1], message[2], message[3]);
+                            if(!Utils.isThereSameKey(context, message[3])) {
+                                DBUtils.addToDB(context, message[1], message[2], message[3]);
+                            }
                             break;
                         case Constants.UPDATE:
                             Cursor cursor = DBUtils.searchDB(context, null, null);
                             String data = "";
                             while(cursor.moveToNext()){
                                 data += cursor.getString(cursor.getColumnIndex(Constants.TABLE_ID));
-                                data += cursor.getString(cursor.getColumnIndex(Constants.COLUMN_NAME));
-                                data += cursor.getString(cursor.getColumnIndex(Constants.COLUMN_AMOUNT));
-                                data += cursor.getString(cursor.getColumnIndex(Constants.COLUMN_COLLECT));
-                                data += cursor.getString(cursor.getColumnIndex(Constants.COLUMN_KEY));
+                                data += " "+cursor.getString(cursor.getColumnIndex(Constants.COLUMN_NAME));
+                                data += " "+cursor.getString(cursor.getColumnIndex(Constants.COLUMN_AMOUNT));
+                                data += " "+cursor.getString(cursor.getColumnIndex(Constants.COLUMN_COLLECT));
+                                data += " "+cursor.getString(cursor.getColumnIndex(Constants.COLUMN_KEY));
                                 data += "\n";
                             }
                             Utils.sendMessage(context, data);
