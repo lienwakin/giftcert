@@ -49,20 +49,20 @@
         android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/delete" />
-
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="352dp"
-        android:layout_height="96dp"
-        android:layout_marginBottom="81dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:backgroundTint="@color/grey"
-        android:text="Delete entry"
-        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginBottom="136dp" />
+
+    <!--<Button-->
+        <!--android:id="@+id/delete"-->
+        <!--android:layout_width="352dp"-->
+        <!--android:layout_height="96dp"-->
+        <!--android:layout_marginBottom="81dp"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--android:backgroundTint="@color/grey"-->
+        <!--android:text="Delete entry"-->
+        <!--android:textSize="20dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent" />-->
 </android.support.constraint.ConstraintLayout>

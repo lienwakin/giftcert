@@ -26,7 +26,6 @@
         <activity android:name="com.burgers.raffy.activities.GenerateActivity" />
         <activity android:name="com.burgers.raffy.activities.CheckActivity" />
         <activity android:name="com.burgers.raffy.activities.ListActivity" />
-        <activity android:name="com.burgers.raffy.activities.DeleteEntryActivity" />
 
         <receiver android:name="com.burgers.raffy.receivers.SmsReceiver">
             <intent-filter>

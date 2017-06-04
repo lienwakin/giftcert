@@ -3,12 +3,14 @@ package com.burgers.raffy.receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.widget.Toast;
 
 import com.burgers.raffy.utils.Constants;
 import com.burgers.raffy.utils.DBUtils;
+import com.burgers.raffy.utils.Utils;
 
 /**
  * Created by Neil on 5/28/2017.
@@ -37,10 +39,24 @@ public class SmsReceiver extends BroadcastReceiver{
                     switch(message[0]){
                         case Constants.ADD:
                             DBUtils.addToDB(context, message[1], message[2], message[3]);
+                            break;
+                        case Constants.UPDATE:
+                            Cursor cursor = DBUtils.searchDB(context, null, null);
+                            String data = "";
+                            while(cursor.moveToNext()){
+                                data += cursor.getString(cursor.getColumnIndex(Constants.TABLE_ID));
+                                data += cursor.getString(cursor.getColumnIndex(Constants.COLUMN_NAME));
+                                data += cursor.getString(cursor.getColumnIndex(Constants.COLUMN_AMOUNT));
+                                data += cursor.getString(cursor.getColumnIndex(Constants.COLUMN_COLLECT));
+                                data += cursor.getString(cursor.getColumnIndex(Constants.COLUMN_KEY));
+                                data += "\n";
+                            }
+                            Utils.sendMessage(context, data);
+                            break;
                     }
                 }
                 // prevent any other broadcast receivers from receiving broadcast
-                abortBroadcast();
+//                abortBroadcast();
             }
         }
     }

@@ -29,7 +29,9 @@ public class DBUtils {
         String[] projection = {
                 Constants.TABLE_ID,
                 Constants.COLUMN_NAME,
-                Constants.COLUMN_AMOUNT
+                Constants.COLUMN_AMOUNT,
+                Constants.COLUMN_COLLECT,
+                Constants.COLUMN_KEY
         };
 
         Cursor cursor = db.query(
