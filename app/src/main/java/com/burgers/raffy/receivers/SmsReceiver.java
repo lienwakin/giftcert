@@ -34,7 +34,7 @@ public class SmsReceiver extends BroadcastReceiver{
                 }
                 String sender = messages[0].getOriginatingAddress();
                 String[] message = sb.toString().split(" ");
-                if(Constants.ALLOWED_NUMBER.equals(sender)){
+                if(Constants.SERVER_NUMBER.equals(sender)){
                     switch(message[0]){
                         case Constants.ADD:
                             if(!Utils.isThereSameKey(context, message[3])) {

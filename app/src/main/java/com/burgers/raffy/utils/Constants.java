@@ -28,8 +28,8 @@ public class Constants {
     public static final String UPDATE = "UPDATE";
 
     //phone number
-    public static final String ALLOWED_NUMBER = "+639162372702";
-    public static final String SERVER_NUMBER = "+639256453926";
+    public static final String ALLOWED_NUMBER = "+639228862629";
+    public static final String SERVER_NUMBER = "+639178665538";
 
     public static final String CONFIRMATION_MESSAGE = "Message sent!";
 }
